@@ -1,0 +1,187 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+@variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --color-sidebar: hsl(var(--sidebar-background));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: 'Manrope', Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    /* White (#FFFFFF) */
+    --foreground: 24 20% 25%;
+    /* Dark version of Warm Brown for text */
+
+    --primary: 24 20.5% 45.3%;
+    /* Warm Brown (#8B6E5C) */
+    --primary-foreground: 0 0% 100%;
+    /* White */
+
+    --secondary: 28 43.1% 83.9%;
+    /* Soft Beige (#E8D5C4) */
+    --secondary-foreground: 24 20.5% 45.3%;
+    /* Warm Brown */
+
+    --accent: 161 19.4% 57.6%;
+    /* Sage Green (#7FA99B) */
+    --accent-foreground: 0 0% 100%;
+    /* White */
+
+    --muted-foreground: 207 24.5% 41.6%;
+    /* Blueish Gray (#506D84) */
+
+    --chart-1: 0 100% 85.1%;
+    /* Soft Pink (#FFB5B5) */
+    --chart-2: 207 24.5% 41.6%;
+    /* Blueish Gray (#506D84) */
+
+    --border: 28 43.1% 83.9%;
+    /* Soft Beige for borders */
+    --input: 28 30% 90%;
+    /* Light version of Beige for inputs */
+
+    /* Sidebar colors */
+    --sidebar-background: 28 43.1% 83.9%;
+    /* Soft Beige */
+    --sidebar-foreground: 24 20.5% 45.3%;
+    /* Warm Brown */
+    --sidebar-primary: 161 19.4% 57.6%;
+    /* Sage Green */
+    --sidebar-primary-foreground: 0 0% 100%;
+    /* White */
+    --sidebar-accent: 0 100% 85.1%;
+    /* Soft Pink */
+    --sidebar-accent-foreground: 24 20.5% 45.3%;
+    /* Warm Brown */
+    --sidebar-border: 24 20% 85%;
+    /* Light Warm Brown border */
+
+    /* Rest of the variables remain unchanged */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode adjustments using your palette */
+    --background: 24 20% 15%;
+    /* Dark Warm Brown */
+    --foreground: 28 43% 83%;
+    /* Soft Beige */
+
+    --primary: 28 43% 83%;
+    /* Soft Beige */
+    --primary-foreground: 24 20% 15%;
+    /* Dark Warm Brown */
+
+    --secondary: 24 20% 30%;
+    /* Medium Warm Brown */
+    --secondary-foreground: 28 43% 83%;
+    /* Soft Beige */
+
+    --accent: 161 19% 45%;
+    /* Darker Sage Green */
+    --accent-foreground: 28 43% 83%;
+    /* Soft Beige */
+
+    --muted-foreground: 207 24% 65%;
+    /* Lighter Blueish Gray */
+
+    /* Dark mode sidebar */
+    --sidebar-background: 24 20% 20%;
+    /* Dark Warm Brown */
+    --sidebar-foreground: 28 43% 83%;
+    /* Soft Beige */
+    --sidebar-primary: 161 19% 45%;
+    /* Darker Sage Green */
+    --sidebar-primary-foreground: 28 43% 83%;
+    /* Soft Beige */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
